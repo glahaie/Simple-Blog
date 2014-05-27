@@ -1,0 +1,16 @@
+extends layout
+
+//Dseign de page basé surhttps://ooomf.com/how-it-works 
+block content
+    .container
+        .row-fluid
+            .col-md9
+                //Maintenant on commence l'article
+                .jumbotron
+                    h1.text-center= title
+
+                    //L'auteur
+                    p.text-center Auteur: #{article.auteur} - Date: #{article.date}
+                //On Commence l'article
+                .span6.well !{article.texte}
+

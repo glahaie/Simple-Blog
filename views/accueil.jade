@@ -1,0 +1,28 @@
+extends layout
+
+block content
+    .container
+        .col-12.col-sm-12
+            h1.text-center= title
+            .row
+                .col-3.col-sm-3
+                    h3 Les articles du blog
+                    ul.list-unstyled
+                        if articles.titres.length === 0
+                            p Aucun article publié
+                        else 
+                            each titre in articles.titres
+                                li 
+                                    a(href="/#{titre._id}") #{titre.titre}
+                .col-9.col-sm-9
+                    h3 Les trois articles les plus récents
+                    if articles.recent.length === 0 
+                        .well
+                            h3 Aucun article publié
+                    else
+                        each article in articles.recent
+                            .well
+                                h3= article.titre
+                                p Auteur: #{article.auteur} - Date: #{article.date}
+                                hr
+                                .texte !{article.texte}

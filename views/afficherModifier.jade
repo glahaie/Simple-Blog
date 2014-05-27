@@ -1,0 +1,60 @@
+doctype
+html
+  head
+      title Modification de "#{title}"
+      meta(charset="utf-8")
+      //Pour le moment, bootstrap
+      link(rel='stylesheet', href='/stylesheets/vendor/bootstrap-theme.min.css')
+      link(rel='stylesheet', href='/stylesheets/vendor/bootstrap.min.css')
+      link(rel='stylesheet', href='/stylesheets/style.css')
+      //les scripts
+      script(src='/javascripts/vendor/jquery-2.0.3.min.js')
+      script(src='/javascripts/vendor/jquery-ui-1.10.3.custom.min.js')
+      script(src='/javascripts/vendor/bootstrap.min.js')
+      script(src='/javascripts/vendor/underscore-min.js')
+      script(src='/javascripts/verification.js')
+      script(src='/javascripts/modifier.js')
+
+  body
+    .container
+        .col-12.col-sm-12
+            .jumbotron
+                h1.text-center Modification de:
+                h2.text-center#jumbo #{title}
+            #alert-placeholder
+            form#article(role="form").well
+                .form-group
+                    label(for="_id") Identifiant
+                    input.form-control#_id(type="text" value="#{article._id}" readonly)
+                .form-group
+                    label(for="date") Date
+                    input.form-control#date(type="text" value="#{article.date}" readonly)
+                .form-group
+                    label(for="titre") Titre
+                    input.form-control#titre(type="text" value="#{article.titre}")
+                    #titreErr
+                .form-group
+                    label(for="auteur") Auteur
+                    input.form-control#auteur(type="text" value="#{article.auteur}")
+                    #auteurErr
+                .form-group
+                    label(for="texte") Texte
+                    textarea.form-control#texte(rows=10) #{article.texte}
+                    #texteErr
+                button.btn.btn-primary#enregistrer(type="submit") Enregistrer l'article
+                button.btn.btn-primary#supprimerDialogue(data-toggle="modal" data-target="#myModal") Supprimer l'article
+
+
+    //Confirmation de la suppression d'un article: modal
+    //de bootstrap, d'après
+    .modal.fade#myModal(role="dialog" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop='static' data-keyboard="false")
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    button.close(data-dismiss='modal' aria-hidden='true') &times;
+                    h4.modal-title#myModalLabel Supprimer l'article
+                .modal-body
+                    p Veuillez confirmer que vous voulez bien supprimer l'article "#{title}"
+                .modal-footer
+                    button#annuler.btn.btn-default(data-dismiss='modal') Annuler
+                    button#supprimer.btn.btn-primary Supprimer l'article

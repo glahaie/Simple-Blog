@@ -1,0 +1,20 @@
+{
+  "name": "blog-simple",
+  "author": "Guillaume Lahaie",
+  "version": "1.0.0",
+  "description": "Une application node qui permet de gérer un blog: on peut ajouter, modifier et supprimer un blog, on peut consulter un article directement par son identifiant, et la page d'accueil permet de voir une liste des articles, avec les articles les plus récents.",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "3.4.0",
+    "jade": "*",
+    "stylus": "*",
+    "coffee-script": "1.7.1",
+    "moment" : "*",
+    "mongodb":"*",
+    "underscore": "*",
+    "underscore.string":"*"
+  }
+}

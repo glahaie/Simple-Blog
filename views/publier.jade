@@ -1,0 +1,29 @@
+extends layout
+
+block content
+    .container
+        .col-12.col-sm-12
+            .jumbotron
+                h1.text-center= title
+            #alert-placeholder
+            form#article(role="form").well
+                .form-group
+                    label(for="_id") Identifiant
+                    input.form-control#_id(type="text" )
+                    #_idErr
+                .form-group
+                    label(for="titre") Titre
+                    input.form-control#titre(type="text")
+                    #titreErr
+                button.btn.btn-primary#generer Générer un identifiant
+                .form-group
+                    label(for="auteur") Auteur
+                    input.form-control#auteur(type="text")
+                    #auteurErr
+                .form-group
+                    label(for="texte") Texte
+                    textarea.form-control#texte(rows=10)
+                    #texteErr
+                button.btn.btn-primary#enregistrer(type="submit" ) Enregistrer l'article
+
+
